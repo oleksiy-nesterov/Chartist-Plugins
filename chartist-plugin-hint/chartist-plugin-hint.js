@@ -5,8 +5,9 @@
     var defaultOptions = {
         offsetX      : 0,         //
         offsetY      : 0,         //
-        contentFn    : undefined, //
-        cssClass     : undefined  //
+        contentFn    : undefined, // Content generator function(data){return '<h1>' + data.value + '</h1>';}
+                                  // data.hint, data.value, data.meta, data.color, data.index, data.series, data.label
+        cssClass     : undefined  // Custom CSS class
     };
     Chartist.plugins = Chartist.plugins || {};
     Chartist.plugins.hint = function(options){
@@ -78,7 +79,7 @@
                     color       = getTargetColor(el);
                     
                     if(typeof(options.contentFn) === 'function'){     
-                        html = options.contentFn.apply(chart, {
+                        html = options.contentFn.call(chart, {
                             hint        : hint,
                             value       : value,
                             meta        : meta, 

@@ -21,7 +21,28 @@
     <div class="ex1"></div>
     <div class="ex2"></div>
     <div class="ex3"></div>
-    <div class="ex4"></div>    
+    <div class="ex4"></div> 
+    
+    <h3>Content generator: <b>{contentFn:function(data){return '&lt;h1&gt;' + data.value + '&lt;/h1&gt;';}} //data.hint, data.value, data.meta, data.color, data.index, data.series, data.label</b></h3>
+    <div class="ex5"></div>
+    
+    <h3>Other options: <b>{offsetX:20, offsetY:..., cssClass:...}</b></h3>
+    <style>
+        .my-hint{
+            border-radius : 50%;
+            height        : 100px;
+            width         : 100px;
+            border        : 5px solid #232323;
+            background    : rgba(35, 35, 35, 0.47);
+            box-sizing    : border-box;
+            padding-top   : 25px;
+        }
+        .my-hint:before{
+            margin-left   : -20px;
+            border-width  : 20px;
+        }
+    </style>
+    <div class="ex6"></div>
 </body>
 </html>
 
@@ -44,6 +65,7 @@
             ]
         });
     });
+    
     addExample('.ex2', function(){
         new Chartist.Bar('.ex2', {
             labels: ['One', 'Two', 'Three', 'Four', 'Five'],
@@ -61,6 +83,7 @@
             ]
         });
     });
+    
     addExample('.ex3', function(){
         new Chartist.Pie('.ex3', {
             labels: ['One', 'Two', 'Three', 'Four', 'Five'],
@@ -74,6 +97,7 @@
             ]
         });
     });
+    
     addExample('.ex4', function(){
         new Chartist.Line('.ex4', {
             series: [
@@ -88,5 +112,49 @@
                 Chartist.plugins.hint()
             ]
         });
-    });   
+    });
+    
+    addExample('.ex5', function(){
+        new Chartist.Pie('.ex5', {
+            labels: ['One', 'Two', 'Three', 'Four', 'Five'],
+            series: [1, 2, 3, 4, 5]
+        },{
+            showLabel: false,
+            donut: true,
+            height: 200,
+            plugins: [
+                Chartist.plugins.hint({
+                    contentFn: function(data){
+                        return [
+                            '<div style="',
+                            'border-radius:50%;padding:20px;',
+                            'width:50px;line-height:50px;',
+                            'font-size:40px;color:#fff;background:',
+                            data.color,
+                            ';">',
+                            data.value,
+                            '</div>'
+                        ].join('');
+                    }
+                })
+            ]
+        });
+    });
+    
+    addExample('.ex6', function(){
+        new Chartist.Pie('.ex6', {
+            labels: ['One', 'Two', 'Three', 'Four', 'Five'],
+            series: [1, 2, 3, 4, 5]
+        },{
+            showLabel: false,
+            donut: true,
+            height: 200,
+            plugins: [
+                Chartist.plugins.hint({ 
+                    cssClass: 'my-hint',
+                    offsetY: -20
+                })
+            ]
+        });
+    });    
 </script>

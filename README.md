@@ -1,5 +1,6 @@
 ChartistPlugins
 ==========
+
 Plugins for [chartist.js][link-0]:
 
 ## Custom colors
