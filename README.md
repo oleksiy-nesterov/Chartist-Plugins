@@ -2,11 +2,11 @@ ChartistPlugins
 ==========
 Plugins for [chartist.js][link-0]:
 
-- Custom colors
+## Custom colors
 ![](http://webmotoric.com/sandbox/build/ChartistPlugins/chartist-plugin-colors/demo.png)
 [Demo and Docs][link-1]
 
-- Custom hint
+## Custom hint
 ![](http://webmotoric.com/sandbox/build/ChartistPlugins/chartist-plugin-hint/demo.png)
 [Demo and Docs][link-2]
 
