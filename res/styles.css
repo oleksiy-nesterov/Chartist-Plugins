@@ -1,0 +1,23 @@
+html{
+    background: #eadbc4;
+    color: #5b4421;
+}
+body{
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+h1, h2, h3{
+    text-transform: uppercase;
+    font-weight: normal;
+}
+h1{
+    text-align: center;
+}
+h3{
+    text-transform: none;
+    margin: 50px 0 20px 0;
+}
+h3 > b{
+    color: #d70206;
+    font-family: monospace;
+}
